@@ -17,3 +17,22 @@ D:\УЧЕБА 4 СЕМ\ООП\Laba 2\Laba 2\obj\Debug\netcoreapp3.1\Laba_2.Form1
 D:\УЧЕБА 4 СЕМ\ООП\Laba 2\Laba 2\obj\Debug\netcoreapp3.1\Laba_2.Lector.resources
 D:\УЧЕБА 4 СЕМ\ООП\Laba 2\Laba 2\obj\Debug\netcoreapp3.1\Laba_2.Form1 - Копировать - Копировать.resources
 D:\УЧЕБА 4 СЕМ\ООП\Laba 2\Laba 2\obj\Debug\netcoreapp3.1\Laba_2.Properties.Resources.resources
+D:\УЧЕБА 4 СЕМ\ООП\OOP-Labs-4sem\Laba 2\Laba 2\obj\Debug\netcoreapp3.1\Laba 2.csprojAssemblyReference.cache
+D:\УЧЕБА 4 СЕМ\ООП\OOP-Labs-4sem\Laba 2\Laba 2\obj\Debug\netcoreapp3.1\Laba_2.Form1.resources
+D:\УЧЕБА 4 СЕМ\ООП\OOP-Labs-4sem\Laba 2\Laba 2\obj\Debug\netcoreapp3.1\Laba_2.Lector.resources
+D:\УЧЕБА 4 СЕМ\ООП\OOP-Labs-4sem\Laba 2\Laba 2\obj\Debug\netcoreapp3.1\Laba_2.Properties.Resources.resources
+D:\УЧЕБА 4 СЕМ\ООП\OOP-Labs-4sem\Laba 2\Laba 2\obj\Debug\netcoreapp3.1\Laba 2.csproj.GenerateResource.cache
+D:\УЧЕБА 4 СЕМ\ООП\OOP-Labs-4sem\Laba 2\Laba 2\obj\Debug\netcoreapp3.1\Laba 2.AssemblyInfoInputs.cache
+D:\УЧЕБА 4 СЕМ\ООП\OOP-Labs-4sem\Laba 2\Laba 2\obj\Debug\netcoreapp3.1\Laba 2.AssemblyInfo.cs
+D:\УЧЕБА 4 СЕМ\ООП\OOP-Labs-4sem\Laba 2\Laba 2\obj\Debug\netcoreapp3.1\Laba 2.dll
+D:\УЧЕБА 4 СЕМ\ООП\OOP-Labs-4sem\Laba 2\Laba 2\obj\Debug\netcoreapp3.1\Laba 2.pdb
+D:\УЧЕБА 4 СЕМ\ООП\OOP-Labs-4sem\Laba 2\Laba 2\bin\Debug\netcoreapp3.1\Laba 2.exe
+D:\УЧЕБА 4 СЕМ\ООП\OOP-Labs-4sem\Laba 2\Laba 2\bin\Debug\netcoreapp3.1\Laba 2.deps.json
+D:\УЧЕБА 4 СЕМ\ООП\OOP-Labs-4sem\Laba 2\Laba 2\bin\Debug\netcoreapp3.1\Laba 2.runtimeconfig.json
+D:\УЧЕБА 4 СЕМ\ООП\OOP-Labs-4sem\Laba 2\Laba 2\bin\Debug\netcoreapp3.1\Laba 2.runtimeconfig.dev.json
+D:\УЧЕБА 4 СЕМ\ООП\OOP-Labs-4sem\Laba 2\Laba 2\bin\Debug\netcoreapp3.1\Laba 2.dll
+D:\УЧЕБА 4 СЕМ\ООП\OOP-Labs-4sem\Laba 2\Laba 2\bin\Debug\netcoreapp3.1\Laba 2.pdb
+D:\УЧЕБА 4 СЕМ\ООП\OOP-Labs-4sem\Laba 2\Laba 2\obj\Debug\netcoreapp3.1\Laba 2.genruntimeconfig.cache
+D:\УЧЕБА 4 СЕМ\ООП\OOP-Labs-4sem\Laba 2\Laba 2\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\УЧЕБА 4 СЕМ\ООП\OOP-Labs-4sem\Laba 2\Laba 2\obj\Debug\netcoreapp3.1\Laba 2.csproj.CoreCompileInputs.cache
+D:\УЧЕБА 4 СЕМ\ООП\OOP-Labs-4sem\Laba 2\Laba 2\obj\Debug\netcoreapp3.1\Laba 2.csproj.CopyComplete
