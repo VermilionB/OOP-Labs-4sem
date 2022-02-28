@@ -7,14 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Laba_2.Classes;
+using Laba_3.Classes;
 using System.IO;
 using System.Text.Json;
 
-namespace Laba_2
+namespace Laba_3
 {
     public partial class Lector : Form
     {
+        public Lector()
+        {
+            InitializeComponent();
+        }
+
         public void validDepartment()
         {
             bool flag = false;
@@ -28,27 +33,24 @@ namespace Laba_2
 
             if (flag == false)
             {
-                MessageBox.Show(@"Select correct speciality", @"Error", MessageBoxButtons.OK,
+                MessageBox.Show(@"Select correct department", @"Error", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 return;
             }
-        }
-        public Lector()
-        {
-            InitializeComponent();
         }
 
         private void SubmitLectorBut_Click(object sender, EventArgs e)
         {
             if (Name.Text == string.Empty)
             {
-                MessageBox.Show(@"Enter discipline name", @"Error", MessageBoxButtons.OK,
+                MessageBox.Show(@"Enter lector's name", @"Error", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 return;
             }
+
             validDepartment();
             ClassLector lector = new ClassLector(Name.Text, DepartmentBox.Text, LectionDate.Value);
-            using (StreamWriter fs = new StreamWriter(@"D:\УЧЕБА 4 СЕМ\ООП\OOP-Labs-4sem\Laba 2\Laba 2\jsonLector.json"))
+            using (StreamWriter fs = new StreamWriter(@"D:\УЧЕБА 4 СЕМ\ООП\OOP-Labs-4sem\Laba 3\Laba 3\jsonLector.json"))
             {
                 fs.WriteLine( JsonSerializer.Serialize(lector));
             }

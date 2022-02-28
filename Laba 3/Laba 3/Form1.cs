@@ -3,20 +3,18 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Threading;
-using System.Windows.Forms;
-using Laba_2.Classes;
 using System.Text.Json;
-using System.IO;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using Laba_3.Classes;
 
-namespace Laba_2
+namespace Laba_3
 {
     public partial class Form1 : Form
     {
-
         public void validSpeciality()
         {
             bool flag = false;
@@ -88,7 +86,15 @@ namespace Laba_2
         private void LectorButton_Click(object sender, EventArgs e)
         {
             Lector lector = new Lector();
-            lector.Show();
+            if (lector == null || lector.IsDisposed)
+            { 
+                lector = new Lector();
+                lector.Show();
+            }
+            else {
+                lector.Show();
+                lector.Focus();
+            }
         }
 
         private void Course4_CheckedChanged(object sender, EventArgs e)
@@ -101,44 +107,19 @@ namespace Laba_2
             e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Space);
         }
 
+        ClassLector lector = new ClassLector();
+        ClassDiscipline discipline = new ClassDiscipline();
         private void ShowButton_Click(object sender, EventArgs e)
         {
-            ClassLector lector = new ClassLector();
-            ClassDiscipline discipline = new ClassDiscipline();
-
-            var fileDiscipline = new FileInfo(@"D:\УЧЕБА 4 СЕМ\ООП\OOP-Labs-4sem\Laba 2\Laba 2\jsonDiscipline.json");
-            var fileLector = new FileInfo(@"D:\УЧЕБА 4 СЕМ\ООП\OOP-Labs-4sem\Laba 2\Laba 2\jsonLector.json");
-
-            if (fileLector.Length == 0)
+            using (StreamReader fs = new StreamReader(@"D:\УЧЕБА 4 СЕМ\ООП\OOP-Labs-4sem\Laba 3\Laba 3\jsonDiscipline.json"))
             {
-                MessageBox.Show(@"Lector was not entered", @"Error", MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-                return;
-            }
-            if (fileDiscipline.Length == 0)
-            {
-                MessageBox.Show(@"Discipline was not entered", @"Error", MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-                return;
+                discipline = JsonSerializer.Deserialize<ClassDiscipline>(fs.ReadToEnd());
             }
 
-            using (StreamReader fs = new StreamReader(@"D:\УЧЕБА 4 СЕМ\ООП\OOP-Labs-4sem\Laba 2\Laba 2\jsonLector.json"))
-            {
-                if (fs != null)
-                {
-                    lector = JsonSerializer.Deserialize<ClassLector>(fs.ReadToEnd());
-                }
-            }
+            lector = new ClassLector(discipline.ClassLector.Name, discipline.ClassLector.Department, discipline.ClassLector.Date);
 
             TableLector.Rows.Add(lector.Name, lector.Department, lector.Date);
 
-            using (StreamReader fs = new StreamReader(@"D:\УЧЕБА 4 СЕМ\ООП\OOP-Labs-4sem\Laba 2\Laba 2\jsonDiscipline.json"))
-            {
-                if (fs != null)
-                {
-                    discipline = JsonSerializer.Deserialize<ClassDiscipline>(fs.ReadToEnd());
-                }
-            }
             var semesters = discipline.Semester.ToArray();
             if (semesters.Length > 1)
             {
@@ -148,8 +129,6 @@ namespace Laba_2
             else TableDiscipline.Rows.Add(discipline.DisciplineName, $"{semesters[0]}", discipline.Specilization,
                     discipline.Course, discipline.Lections, discipline.Labs, discipline.Control);
 
-            File.WriteAllText(@"D:\УЧЕБА 4 СЕМ\ООП\OOP-Labs-4sem\Laba 2\Laba 2\jsonLector.json", string.Empty);
-            File.WriteAllText(@"D:\УЧЕБА 4 СЕМ\ООП\OOP-Labs-4sem\Laba 2\Laba 2\jsonDiscipline.json", string.Empty);
         }
 
         private void SubmitBut_Click(object sender, EventArgs e)
@@ -177,21 +156,30 @@ namespace Laba_2
                 return;
             }
 
+            //if (AmountOfLections.Value < AmountOfLections.Minimum || AmountOfLections.Value > AmountOfLections.Maximum)
+            //{
+            //    MessageBox.Show(@"Incorrect amount of lections", @"Error", MessageBoxButtons.OK,
+            //        MessageBoxIcon.Error);
+            //    return;
+            //}
+
             validControl();
 
+
             List<string> semesterList = new List<string>();
-            foreach(string item in SemesterListBox.CheckedItems)
+            foreach (string item in SemesterListBox.CheckedItems)
             {
                 semesterList.Add(item);
             }
             ClassDiscipline discipline = new ClassDiscipline(DisciplineName.Text, semesterList, DisciplineList.Text,
-                switchCourse(), AmountOfLections.Value.ToString(), AmountOfLabs.Value, ExamSelect.Text);
+                switchCourse(), AmountOfLections.Value.ToString(), AmountOfLabs.Value, ExamSelect.Text, lector);
 
-            using (StreamWriter fs = new StreamWriter(@"D:\УЧЕБА 4 СЕМ\ООП\OOP-Labs-4sem\Laba 2\Laba 2\jsonDiscipline.json"))
+            using (StreamWriter fs = new StreamWriter(@"D:\УЧЕБА 4 СЕМ\ООП\OOP-Labs-4sem\Laba 3\Laba 3\jsonDiscipline.json"))
             {
                 fs.WriteLine(JsonSerializer.Serialize(discipline));
             }
 
         }
+
     }
 }
